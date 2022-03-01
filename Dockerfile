@@ -1,9 +1,7 @@
-FROM ubuntu:latest
+FROM ghcr.io/arkadiuminc/az:main
 
 WORKDIR /opt
 
-RUN apt-get update && apt-get install -y gnupg software-properties-common curl && \
-    curl -fsSL https://apt.releases.hashicorp.com/gpg -o gpg.key && apt-key add gpg.key && \
-    apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" && \
-    apt-get update && apt-get install terraform && \
-    apt-get clean
+RUN curl -sSL https://releases.hashicorp.com/terraform/1.1.6/terraform_1.1.6_linux_amd64.zip -o terraform.zip && \
+    unzip terraform.zip -d /usr/bin && rm terraform.zip
+
