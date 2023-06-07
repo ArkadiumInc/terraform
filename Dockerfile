@@ -1,4 +1,4 @@
-FROM ghcr.io/arkadiuminc/az:main
+FROM ghcr.io/arkadiuminc/az:latest
 
 WORKDIR /opt
 
